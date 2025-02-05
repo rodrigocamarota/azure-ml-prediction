@@ -1,61 +1,39 @@
-# Projeto de Machine Learning no Azure ML - Previsão com Regressão
+# Projeto de Previsão com Regressão no Azure Machine Learning
 
-Este projeto demonstra o processo de criação e implantação de um modelo de Machine Learning usando o **Azure Machine Learning Studio**. O objetivo foi treinar um modelo de regressão baseado em um conjunto de dados públicos sobre Pokémon.
+Neste projeto, eu treinei um modelo de regressão no **Azure Machine Learning Studio**, utilizando um conjunto de dados público sobre Pokémon. O objetivo foi construir um modelo de previsão e implantar um ponto de extremidade para fazer previsões em tempo real.
 
-## 🚀 Passo a Passo
+## Passo a Passo
 
-### 1. Configuração do Ambiente
-1. Acesse o [Portal do Azure](https://portal.azure.com/) e crie um novo **Azure Machine Learning Workspace**.
-2. No workspace criado, acesse o **Azure Machine Learning Studio**.
+### 1. Criação do Workspace no Azure
+A primeira etapa foi acessar o **Portal do Azure** e criar um novo **Azure Machine Learning Workspace**. Esse workspace é o ponto central onde todo o gerenciamento e os recursos de Machine Learning são organizados.
 
-### 2. Criação do Trabalho Automatizado
-3. No **Azure Machine Learning Studio**, crie um novo **Trabalho de ML Automatizado**.
-4. Defina as **configurações básicas** do projeto.
-5. No tipo de tarefa, escolha **Regressão**.
+### 2. Acessando o Azure Machine Learning Studio
+Após a criação do workspace, fui até o **Azure Machine Learning Studio**, que é a interface onde criei o trabalho de Machine Learning e configurei o modelo de previsão.
 
-### 3. Configuração da Fonte de Dados
-6. Adicione uma **fonte de dados** a partir de um endereço web contendo um conjunto de dados públicos sobre **Pokémons** em formato **CSV**.
+### 3. Criação do Trabalho de Machine Learning Automatizado
+Dentro do **Azure Machine Learning Studio**, criei um novo trabalho de ML automatizado. Isso permite a criação de um fluxo automatizado para treinar e avaliar o modelo sem a necessidade de intervenção manual.
 
-### 4. Configuração das Tarefas
-7. Configure os parâmetros do modelo:
-   - Escolha os dados de entrada.
-   - Defina a **coluna de destino**.
-   - Configure as **métricas** e os **modelos permitidos**.
-   - Ajuste os **limites** para o treinamento.
+### 4. Configurações Iniciais do Trabalho
+Realizei as configurações básicas do trabalho, como a definição do nome e a escolha de parâmetros iniciais. Na sequência, selecionei o tipo de tarefa como **Regressão**, que era adequado para prever valores numéricos com base em variáveis de entrada.
 
-### 5. Treinamento do Modelo
-8. Escolha as **configurações de computação** e inicie o **treinamento**.
-9. O processo de treinamento levou aproximadamente **20 minutos**.
+### 5. Fonte de Dados
+Para o modelo, utilizei um conjunto de dados público sobre **Pokémons**, que estava disponível em formato **CSV** na web. Adicionei a fonte de dados diretamente do endereço web, o que me permitiu carregar os dados sem necessidade de uploads manuais.
 
-### 6. Avaliação do Modelo
-10. Após a finalização do treinamento, acesse a aba **Modelos + Trabalhos Filho** e selecione o modelo treinado.
-11. Analise os **resultados** na aba **Métricas** para avaliar o desempenho.
+### 6. Configuração das Tarefas do Modelo
+Configurei as tarefas, que envolviam a definição de:
+- **Dados de entrada**: Escolhi as colunas relevantes do conjunto de dados.
+- **Coluna de destino**: Selecionei a variável que o modelo deveria prever.
+- **Métricas de avaliação**: Configurei as métricas para avaliar o desempenho do modelo.
+- **Modelos permitidos**: Estabeleci os modelos que poderiam ser utilizados para o treinamento, baseados nas características dos dados.
 
-### 7. Implantação do Modelo
-12. Vá até a aba **Implantar** e selecione a opção **Terminal em Tempo Real** para criar um **Ponto de Extremidade**.
-13. Após a implantação, obtenha o **endpoint REST** para futuras inferências.
+### 7. Escolha das Configurações de Computação
+Selecionei as **configurações de computação** adequadas para o treinamento. Em seguida, enviei o trabalho para execução. O tempo de treinamento foi de aproximadamente **20 minutos**, durante o qual o Azure Machine Learning usou recursos computacionais para treinar o modelo com o conjunto de dados escolhido.
 
-## 📂 Arquivos no Repositório
-- `README.md` → Este guia com o passo a passo.
-- `endpoint.json` → Configuração do ponto de extremidade gerado pelo Azure ML.
+### 8. Avaliação do Modelo
+Após a conclusão do treinamento, acessei o menu de **Modelos + Trabalhos Filho** para verificar os resultados. Na aba de **Métricas**, pude observar as estatísticas e avaliar o desempenho do modelo.
 
-## 📡 Uso do Endpoint
-Após a implantação, o modelo pode ser consumido via **requisições HTTP** para o endpoint gerado.
+### 9. Implantação do Modelo
+Após verificar que o modelo estava adequado, fui até a aba **Implantar** e selecionei a opção **Terminal em Tempo Real** para criar um ponto de extremidade (endpoint). O endpoint gerado permite que o modelo seja acessado via API, permitindo realizar previsões em tempo real.
 
-Exemplo de requisição usando **Python**:
-
-```python
-import requests
-
-url = "https://ai-900-pokemon-uvksw.westus.inference.ml.azure.com/score"
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer SUA_CHAVE"
-}
-
-data = {
-    "features": [ /* Insira os dados de entrada aqui */ ]
-}
-
-response = requests.post(url, json=data, headers=headers)
-print(response.json())
+### 10. Ponto de Extremidade Criado
+O ponto de extremidade foi criado com sucesso, e agora ele pode ser utilizado para enviar dados de entrada e obter previsões do modelo treinado. O **endpoint REST** gerado está acessível através do seguinte link:
