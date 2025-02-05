@@ -1,0 +1,12 @@
+{
+    "name": "ai-900-pokemon-uvksw",
+    "provisioning_state": "Succeeded",
+    "authentication_type": "Key",
+    "swagger_uri": "https://ai-900-pokemon-uvksw.westus.inference.ml.azure.com/swagger.json",
+    "scoring_uri": "https://ai-900-pokemon-uvksw.westus.inference.ml.azure.com/score",
+    "network_access": "Enabled",
+    "created_by": "Rodrigo Camarota",
+    "created_at": "Feb 5, 2025 8:27 PM",
+    "last_updated": "Feb 5, 2025 8:27 PM",
+    "compute_type": "Managed"
+}
